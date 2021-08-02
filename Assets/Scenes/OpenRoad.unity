@@ -13591,6 +13591,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 961217970, guid: 273a092f24f322f44a4d4fc51221b89f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.41
+      objectReference: {fileID: 0}
     - target: {fileID: 7109838071759159045, guid: 273a092f24f322f44a4d4fc51221b89f, type: 3}
       propertyPath: m_Name
       value: Area Exit
