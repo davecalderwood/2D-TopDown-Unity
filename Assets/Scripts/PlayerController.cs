@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool canMove = true;
     public Rigidbody2D rB;
     public float moveSpeed = 5f;
     public Animator myAnim;
@@ -31,15 +32,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        rB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
+        if(canMove)
+        {
+            rB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
+        }
+        else
+        {
+            rB.velocity = Vector2.zero;
+        }
 
         myAnim.SetFloat("moveX", rB.velocity.x);
         myAnim.SetFloat("moveY", rB.velocity.y);
 
         if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
-            myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
-            myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+            if(canMove)
+            {
+                myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
+                myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+            }
         }
 
         ClampPlayerToMap();
