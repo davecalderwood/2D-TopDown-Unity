@@ -6,7 +6,7 @@ public class EssentialsLoader : MonoBehaviour
 {
     public GameObject UIScreen;
     public GameObject player;
-    // public GameObject gameMan;
+    public GameObject gameMan;
     void Awake()
     {
         if(UIFade.instance == null)
@@ -16,6 +16,10 @@ public class EssentialsLoader : MonoBehaviour
         if(PlayerController.instance == null)
         {
             Instantiate(player);
+        }
+        if(GameManager.instance == null)
+        {
+            Instantiate(gameMan);
         }
     }
 

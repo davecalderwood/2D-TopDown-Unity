@@ -14,6 +14,7 @@ public class AreaEntrance : MonoBehaviour
 
         // Fade into the new scene
         UIFade.instance.FadeFromBlack();
+        GameManager.instance.fadingBetweenAreas = false;
     }
     void Update()
     {

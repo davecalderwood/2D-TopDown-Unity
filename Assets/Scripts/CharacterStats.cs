@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -15,13 +16,14 @@ public class CharacterStats : MonoBehaviour
 
     // public int currnetMP;
     // public int maxMP = 30;
-    public int strength;
-    public int defence;
-    public int weaponPower;
-    public int armorPower;
+    // public int strength;
+    // public int defence;
+    // public int weaponPower;
+    // public int armorPower;
     public string equippedWeapon;
     public string equippedArmor;
-    public Sprite characterImage;
+    public Slider slider;
+    private CharacterStats[] playerStats;
 
     void Start()
     {
@@ -31,6 +33,8 @@ public class CharacterStats : MonoBehaviour
         for(int i = 2; i < expToNextLevel.Length; i++)
         {
             expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * 1.05f);
+            slider.minValue = 0;
+            slider.maxValue = expToNextLevel[i];
         }
     }
 
@@ -39,6 +43,12 @@ public class CharacterStats : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K))
         {
             AddExp(500);
+        }
+        // slider.value = expToNextLevel / currentEXP;
+
+        for(int i = 2; i < expToNextLevel.Length; i++)
+        {
+            slider.value = playerStats[i].currentEXP;
         }
     }
 
@@ -68,5 +78,18 @@ public class CharacterStats : MonoBehaviour
 
         maxHP = Mathf.FloorToInt(maxHP * 1.05f);
         currentHP = maxHP;
+    }
+
+    public void MainStats()
+    {
+        // playerStats = GameManager.instance.playerStats;
+
+        for(int i = 0; i < playerStats.Length; i++)
+        {
+            // expToNextLevel[i].text = "" + playerStats[i].currentEXP + "/" + playerStats[i].expToNextLevel[playerStats[i].playerLevel];
+            // expSlider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
+            slider.value = playerStats[i].currentEXP;
+            // sliderImage[i].sprite = playerStats[i].characterImage;
+        }
     }
 }
