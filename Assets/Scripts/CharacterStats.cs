@@ -22,6 +22,7 @@ public class CharacterStats : MonoBehaviour
     // public int armorPower;
     public string equippedWeapon;
     public string equippedArmor;
+    public Sprite charImage;
     public Slider slider;
     private CharacterStats[] playerStats;
 
@@ -33,8 +34,8 @@ public class CharacterStats : MonoBehaviour
         for(int i = 2; i < expToNextLevel.Length; i++)
         {
             expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * 1.05f);
-            slider.minValue = 0;
-            slider.maxValue = expToNextLevel[i];
+            // slider.minValue = 0;
+            // slider.maxValue = expToNextLevel[i];
         }
     }
 
@@ -46,10 +47,10 @@ public class CharacterStats : MonoBehaviour
         }
         // slider.value = expToNextLevel / currentEXP;
 
-        for(int i = 2; i < expToNextLevel.Length; i++)
-        {
-            slider.value = playerStats[i].currentEXP;
-        }
+        // for(int i = 2; i < expToNextLevel.Length; i++)
+        // {
+        //     slider.value = playerStats.currentEXP;
+        // }
     }
 
     public void AddExp(int expToAdd)
@@ -84,12 +85,12 @@ public class CharacterStats : MonoBehaviour
     {
         // playerStats = GameManager.instance.playerStats;
 
-        for(int i = 0; i < playerStats.Length; i++)
-        {
+        // for(int i = 0; i < playerStats.Length; i++)
+        // {
             // expToNextLevel[i].text = "" + playerStats[i].currentEXP + "/" + playerStats[i].expToNextLevel[playerStats[i].playerLevel];
             // expSlider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
-            slider.value = playerStats[i].currentEXP;
+            // slider.value = playerStats[i].currentEXP;
             // sliderImage[i].sprite = playerStats[i].characterImage;
-        }
+        // }
     }
 }

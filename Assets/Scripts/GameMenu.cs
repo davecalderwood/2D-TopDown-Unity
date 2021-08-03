@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMenu : MonoBehaviour
 {
     public GameObject menu;
+    public Text[] nameText, hpText, expText, lvlText;
+    public Slider[] expSlider;
+    public Image[] charImage;
+    public GameObject[] charStatHolder;
     private CharacterStats[] playerStats;
+
     void Start()
     {
         
@@ -23,7 +29,33 @@ public class GameMenu : MonoBehaviour
             else 
             {
                 menu.SetActive(true);
+                UpdateMainStats();
                 GameManager.instance.gameMenuOpen = true;
+            }
+        }
+    }
+
+    public void UpdateMainStats()
+    {
+        playerStats = GameManager.instance.playerStats;
+
+        for(int i = 0; i < playerStats.Length; i++)
+        {
+            if(playerStats[i].gameObject.activeInHierarchy)
+            {
+                charStatHolder[i].SetActive(true);
+
+                nameText[i].text = playerStats[i].charName;
+                hpText[i].text = "HP: " + playerStats[i].currentHP + "/" + playerStats[i].maxHP;
+                lvlText[i].text = "LVL: " + playerStats[i].playerLevel;
+                expText[i].text = "" + playerStats[i].currentEXP + "/" + playerStats[i].expToNextLevel[playerStats[i].playerLevel];
+                expSlider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
+                expSlider[i].value = playerStats[i].currentEXP;
+                charImage[i].sprite = playerStats[i].charImage;
+            }
+            else
+            {
+                charStatHolder[i].SetActive(false);
             }
         }
     }
