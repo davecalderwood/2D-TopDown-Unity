@@ -15,6 +15,8 @@ public class GameViewOverlay : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        UpdateMainStats();
     }
 
     void FixedUpdate()
