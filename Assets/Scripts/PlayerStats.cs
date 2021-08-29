@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
     public string charName;
     public int playerLevel = 1;
     public int currentEXP;
@@ -13,21 +14,13 @@ public class CharacterStats : MonoBehaviour
     public int baseEXP = 1000;
     public int currentHP;
     public int maxHP = 100;
-
-    // public int currnetMP;
-    // public int maxMP = 30;
-    // public int strength;
-    // public int defence;
-    // public int weaponPower;
-    // public int armorPower;
     public string equippedWeapon;
     public string equippedArmor;
     public Sprite charImage;
-    // public Slider[] slider;
-    private CharacterStats[] playerStats;
-
     void Start()
     {
+        instance = this;
+        
         expToNextLevel = new int[maxLevel];
         expToNextLevel[1] = baseEXP;
 
@@ -44,12 +37,6 @@ public class CharacterStats : MonoBehaviour
         {
             AddExp(250);
         }
-
-        // for(int i = 0; i < expToNextLevel.Length; i++)
-        // {
-        //     slider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
-        //     slider[i].value = playerStats[i].currentEXP;
-        // }
     }
 
     public void AddExp(int expToAdd)
@@ -68,8 +55,6 @@ public class CharacterStats : MonoBehaviour
             currentEXP = 0;
         }
     }
-
-    // On level up add to max health
     public void LevelUpStats()
     {
         currentEXP -= expToNextLevel[playerLevel];
@@ -77,18 +62,5 @@ public class CharacterStats : MonoBehaviour
 
         maxHP = Mathf.FloorToInt(maxHP * 1.05f);
         currentHP = maxHP;
-    }
-
-    public void MainStats()
-    {
-        // playerStats = GameManager.instance.playerStats;
-
-        // for(int i = 0; i < playerStats.Length; i++)
-        // {
-            // expToNextLevel[i].text = "" + playerStats[i].currentEXP + "/" + playerStats[i].expToNextLevel[playerStats[i].playerLevel];
-            // expSlider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
-            // slider.value = playerStats[i].currentEXP;
-            // sliderImage[i].sprite = playerStats[i].characterImage;
-        // }
     }
 }

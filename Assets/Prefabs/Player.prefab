@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2374480474642888598}
   - component: {fileID: 2374480474642888596}
   - component: {fileID: 2374480474642888587}
+  - component: {fileID: 7276008995127936785}
+  - component: {fileID: 2156202003644958138}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -136,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65da6308168e0f4584929baa82ac290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
   rB: {fileID: 2374480474642888598}
   moveSpeed: 7
   myAnim: {fileID: 2374480474642888587}
@@ -159,3 +162,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7276008995127936785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374480474642888593}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5db38d5257bca4b8001e321bd71997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  playerLevel: 1
+  currentEXP: 0
+  expToNextLevel: 
+  maxLevel: 50
+  baseEXP: 1000
+  currentHP: 0
+  maxHP: 100
+  equippedWeapon: 
+  equippedArmor: 
+  charImage: {fileID: 0}
+--- !u!114 &2156202003644958138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374480474642888593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff3db15791cb0d4c8affcbbd16ec332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  playerLevel: 1
+  currentEXP: 0
+  expToNextLevel: 
+  maxLevel: 50
+  baseEXP: 1000
+  currentHP: 0
+  maxHP: 100
+  equippedWeapon: 
+  equippedArmor: 
+  charImage: {fileID: 0}
+  levelUpText: {fileID: 0}
