@@ -39,7 +39,7 @@ public class GameViewOverlay : MonoBehaviour
             expSlider.maxValue = playerOverlay.expToNextLevel[playerOverlay.playerLevel];
             expSlider.value = playerOverlay.currentEXP;
 
-            lvlText.text = "LVL: " + playerOverlay.playerLevel;
+            lvlText.text = "" + playerOverlay.playerLevel;
 
             hpText.text = "HP: " + playerOverlay.currentHP + "/" + playerOverlay.maxHP;
         }
