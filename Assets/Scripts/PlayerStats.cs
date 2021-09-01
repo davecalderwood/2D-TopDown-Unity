@@ -45,6 +45,11 @@ public class PlayerStats : MonoBehaviour
         {
             TakeDamage(15);
         }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            Healing(25);
+        }
     }
 
     public void AddExp(int expToAdd)
@@ -75,5 +80,17 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         currentHP -= damageTaken;
+
+        if(currentHP <= 0)
+        {
+            currentHP = 0;
+
+            // DeathSequence();
+        }
+    }
+    public void Healing(int healPoints)
+    {
+        currentHP += healPoints;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
     }
 }

@@ -30,7 +30,7 @@ public class GameViewOverlay : MonoBehaviour
 
         if(playerOverlay == null)
         {
-
+            
         }
         else
         {
