@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public GameObject hitEffect;
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        
-    }
+    // public GameObject hitEffect;
+    // public Rigidbody2D rb;
+    // private void OnCollisionEnter2D(Collision2D other) 
+    // {
+    // }
     void Update()
     {
         Object.Destroy(gameObject, 2.0f);

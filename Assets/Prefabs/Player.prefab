@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7276008995127936785}
   - component: {fileID: 2156202003644958138}
   - component: {fileID: 8079478111506325633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -225,8 +225,6 @@ MonoBehaviour:
   firePoint: {fileID: 1591277017914786915}
   arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
   arrowForce: 20
-  cam: {fileID: 1570378801736556816, guid: 7ffc25ec91a77f149a49733544ebb2ae, type: 3}
-  rb: {fileID: 2374480474642888598}
 --- !u!1 &4642869008820594285
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1591277017914786915}
   - component: {fileID: 4134679222612522399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,5 +271,3 @@ MonoBehaviour:
   firePoint: {fileID: 1591277017914786915}
   arrowPrefab: {fileID: 5578968859590642000, guid: 5c26e5a79515f9b47b72736b6b0f4bce, type: 3}
   arrowForce: 20
-  cam: {fileID: 0}
-  rb: {fileID: 0}

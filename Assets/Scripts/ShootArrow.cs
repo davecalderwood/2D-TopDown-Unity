@@ -8,7 +8,7 @@ public class ShootArrow : MonoBehaviour
     public GameObject arrowPrefab;
     public float arrowForce = 20f;
     // public Camera cam;
-    // Vector2 MousePosition;
+    Vector2 MousePosition;
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
@@ -25,7 +25,12 @@ public class ShootArrow : MonoBehaviour
         // mousePos = cam.ScreenToWorldPoint(new Vector3 (mousePos.x, mousePos.y, cam.transform.position.y - transform.position.y));
         // firePoint.LookAt(mousePos);
 
-        GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
+        Vector3 screen_pos = Camera.main.ScreenToWorldPoint (new Vector3 (MousePosition.x, MousePosition.y, 0));
+        screen_pos.z = transform.position.z;
+
+        Vector3 direction = (screen_pos - transform.position).normalized;
+
+        GameObject arrow = Instantiate(arrowPrefab, firePoint.position + direction, Quaternion.identity);
 
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
 
