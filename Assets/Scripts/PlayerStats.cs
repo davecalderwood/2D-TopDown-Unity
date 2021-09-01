@@ -29,6 +29,9 @@ public class PlayerStats : MonoBehaviour
         {
             expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * 1.05f);
         }
+
+        // Temporary
+        currentHP = maxHP;
     }
 
     void Update()
@@ -36,6 +39,11 @@ public class PlayerStats : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K))
         {
             AddExp(250);
+        }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            TakeDamage(15);
         }
     }
 
@@ -62,5 +70,10 @@ public class PlayerStats : MonoBehaviour
 
         maxHP = Mathf.FloorToInt(maxHP * 1.05f);
         currentHP = maxHP;
+    }
+
+    public void TakeDamage(int damageTaken)
+    {
+        currentHP -= damageTaken;
     }
 }
