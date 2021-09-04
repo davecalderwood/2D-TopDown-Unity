@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public CharacterStats[] playerStats;
     public PlayerStats playerOverlay;
-    public bool gameMenuOpen, dialogActive, fadingBetweenAreas;
+    public bool gameMenuOpen, inGameMenuPages, dialogActive, fadingBetweenAreas;
     void Start()
     {
         instance = this;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(gameMenuOpen || dialogActive || fadingBetweenAreas)
+        if(gameMenuOpen || inGameMenuPages || dialogActive || fadingBetweenAreas)
         {
             PlayerController.instance.canMove = false;
         }

@@ -17,7 +17,6 @@ public class ShootArrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 cursorPos = CrosshairCursor.instance.mouseCursorPos;
-            Debug.Log("Firepoint Position " + firePoint.position);
             Shoot();
         }
     }
