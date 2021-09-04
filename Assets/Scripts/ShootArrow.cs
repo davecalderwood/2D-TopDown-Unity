@@ -6,46 +6,50 @@ public class ShootArrow : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject arrowPrefab;
+    public Camera gameCamera;
     public float arrowForce = 20f;
-    // public Camera cam;
-    Vector2 MousePosition, lookDirection;
-    public float lookAngle;
+    float lookAngle;
+    Vector2 lookDirection;
+    public float offset;
     void Update()
     {
-        lookDirection = Camera.main.WorldToScreenPoint(Input.mousePosition);
-        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        // lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
+        // firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            Vector2 cursorPos = CrosshairCursor.instance.mouseCursorPos;
+            Debug.Log("Firepoint Position " + firePoint.position);
+            Other();
+            // arrowClone.velocity = new Vector2(shootDirection.x * arrowForce, shootDirection.y * arrowForce);
+            // Instantiate(arrowPrefab);
+            // GameObject arrowClone = Instantiate(arrowPrefab);
+            // arrowClone.transform.position = firePoint.position;
+            // arrowClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+
+            // arrowClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * arrowForce;
         }
-    }
 
-    void Shoot() 
-    {
-        // Create arrow at firepoint and add force
-        
-        // Vector2 mousePos = Input.mousePosition;
-        // mousePos = cam.ScreenToWorldPoint(new Vector3 (mousePos.x, mousePos.y, cam.transform.position.y - transform.position.y));
-        // firePoint.LookAt(mousePos);
+        void Other()
+        {
+            Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    
+            Vector2 direction = (Vector2)((worldMousePos - firePoint.position));
+            direction.Normalize ();
 
-        // Vector3 screen_pos = Camera.main.ScreenToWorldPoint (new Vector3 (MousePosition.x, MousePosition.y, 0));
-        // screen_pos.z = transform.position.z;
+            // Creates the bullet locally
+            GameObject arrow = (GameObject)Instantiate (
+                                    arrowPrefab,
+                                    firePoint.position + (Vector3)( direction * 0.5f),
+                                    Quaternion.identity);
 
-        // Vector3 direction = (screen_pos - transform.position).normalized;
+            lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+            arrow.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-        // GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
-
-        // Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-
-        // rb.AddForce(firePoint.up * arrowForce, ForceMode2D.Impulse);
-
-        GameObject arrow = Instantiate(arrowPrefab);
-        arrow.transform.position = firePoint.position;
-        arrow.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-
-        arrow.GetComponent<Rigidbody2D>().velocity = firePoint.up * arrowForce;
+            // Adds velocity to the bullet
+            arrow.GetComponent<Rigidbody2D> ().velocity = direction * arrowForce;
+        }   
     }
 }

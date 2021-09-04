@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 2374480474642888598}
   - component: {fileID: 2374480474642888596}
   - component: {fileID: 2374480474642888587}
-  - component: {fileID: 7276008995127936785}
   - component: {fileID: 2156202003644958138}
-  - component: {fileID: 8079478111506325633}
+  - component: {fileID: 2449073493351465485}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -36,6 +35,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1591277017914786915}
+  - {fileID: 361314547609372714}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,29 +164,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7276008995127936785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2374480474642888593}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd5db38d5257bca4b8001e321bd71997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charName: 
-  playerLevel: 1
-  currentEXP: 0
-  expToNextLevel: 
-  maxLevel: 50
-  baseEXP: 1000
-  currentHP: 0
-  maxHP: 100
-  equippedWeapon: 
-  equippedArmor: 
-  charImage: {fileID: 0}
 --- !u!114 &2156202003644958138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +187,7 @@ MonoBehaviour:
   equippedWeapon: 
   equippedArmor: 
   charImage: {fileID: 0}
---- !u!114 &8079478111506325633
+--- !u!114 &2449073493351465485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,9 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1591277017914786915}
-  arrowPrefab: {fileID: 2374480474642888593}
+  arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
+  gameCamera: {fileID: 1570378801736556816, guid: 7ffc25ec91a77f149a49733544ebb2ae, type: 3}
   arrowForce: 20
-  lookAngle: 0
+  offset: 0
 --- !u!1 &4642869008820594285
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1591277017914786915}
-  - component: {fileID: 4134679222612522399}
+  - component: {fileID: 6427617400585443420}
   m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
@@ -251,13 +229,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4642869008820594285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2374480474642888599}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4134679222612522399
+--- !u!114 &6427617400585443420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,10 +244,108 @@ MonoBehaviour:
   m_GameObject: {fileID: 4642869008820594285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b018f6d828c6ce4cbefd3872a09b4f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 810a40e767689f0499968b60109c0e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fixedRotation: 0
+--- !u!1 &5228564236398623753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361314547609372714}
+  - component: {fileID: 6464658289457615179}
+  - component: {fileID: 4841672754554154153}
+  m_Layer: 6
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &361314547609372714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228564236398623753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2374480474642888599}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6464658289457615179
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228564236398623753}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1344015317
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e8bb87f58a25e774eb1903ef86f3d27f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.5, y: 0.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &4841672754554154153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228564236398623753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7180647151db34bacd91313e579bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursorPos: {x: 0, y: 0}
+  shootDirection: {x: 0, y: 0}
   firePoint: {fileID: 1591277017914786915}
   arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
   arrowForce: 20
-  lookAngle: 0
