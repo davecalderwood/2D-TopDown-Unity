@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrosshairCursor : MonoBehaviour
 {
     public static CrosshairCursor instance;
+    public bool cursorEnabled = false;
     float angle;
     public Vector2 mouseCursorPos, shootDirection;
     public Transform firePoint;
@@ -18,7 +19,11 @@ public class CrosshairCursor : MonoBehaviour
 
     void Update() 
     {
-        GetMousePosition();
+        if(cursorEnabled)
+        {
+            GetMousePosition();
+        }
+        else{}
     }
 
     void GetMousePosition()

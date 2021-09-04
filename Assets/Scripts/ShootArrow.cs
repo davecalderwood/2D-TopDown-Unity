@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShootArrow : MonoBehaviour
 {
+    public bool canShoot = true;
+    public static ShootArrow instance;
     public Transform firePoint;
     public GameObject arrowPrefab;
     public Camera gameCamera;
@@ -12,12 +14,25 @@ public class ShootArrow : MonoBehaviour
     Vector2 lookDirection;
     public float offset;
     private float angle;
+
+    private void Awake() 
+    {
+        instance = this;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 cursorPos = CrosshairCursor.instance.mouseCursorPos;
-            Shoot();
+
+            if(canShoot)
+            {
+                Shoot();
+            }
+            else
+            {
+
+            }
         }
     }
     void Shoot()

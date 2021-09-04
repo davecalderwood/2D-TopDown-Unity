@@ -20,10 +20,14 @@ public class GameManager : MonoBehaviour
         if(gameMenuOpen || inGameMenuPages || dialogActive || fadingBetweenAreas)
         {
             PlayerController.instance.canMove = false;
+            ShootArrow.instance.canShoot = false;
+            CrosshairCursor.instance.cursorEnabled = false;
         }
         else
         {
             PlayerController.instance.canMove = true;
+            ShootArrow.instance.canShoot = true;
+            CrosshairCursor.instance.cursorEnabled = true;
         }
     }
 }
