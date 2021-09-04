@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public CharacterStats[] playerStats;
+    public PlayerStats[] playerStats;
     public PlayerStats playerOverlay;
     public bool gameMenuOpen, inGameMenuPages, dialogActive, fadingBetweenAreas;
     void Start()

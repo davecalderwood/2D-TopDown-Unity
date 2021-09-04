@@ -7,7 +7,7 @@ using TMPro;
 public class GameViewOverlay : MonoBehaviour
 {
     public static GameViewOverlay instance;
-    public Text hpText, lvlText, expText;
+    public Text hpText, lvlText, expText, skillPointsToSpend;
     public Slider expSlider, hpSlider;
     private PlayerStats playerOverlay;
     public GameObject charStatHolder;
@@ -45,6 +45,7 @@ public class GameViewOverlay : MonoBehaviour
             hpSlider.value = playerOverlay.currentHP;
 
             lvlText.text = "" + playerOverlay.playerLevel;
+            skillPointsToSpend.text = "" + playerOverlay.skillPoints;
 
             // hpText.text = "HP: " + playerOverlay.currentHP + "/" + playerOverlay.maxHP;
         }

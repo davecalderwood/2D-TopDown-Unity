@@ -22,6 +22,7 @@ public class CrosshairCursor : MonoBehaviour
         if(cursorEnabled)
         {
             GetMousePosition();
+            Cursor.visible = true;
         }
         else{}
     }

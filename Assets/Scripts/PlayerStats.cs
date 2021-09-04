@@ -76,7 +76,7 @@ public class PlayerStats : MonoBehaviour
         currentHP = maxHP;
 
         // Add Skill point
-        if(playerLevel <= 2)
+        if(playerLevel <= 3)
         {
             skillPoints = 0;
         }
@@ -84,6 +84,7 @@ public class PlayerStats : MonoBehaviour
         {
             skillPoints++;
         }
+        // skillPoints++;
     }
 
     public void TakeDamage(int damageTaken)

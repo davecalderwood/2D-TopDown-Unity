@@ -7,11 +7,11 @@ public class GameMenu : MonoBehaviour
 {
     public GameObject menu;
     public GameObject[] windows;
-    public Text[] nameText, hpText, expText, lvlText;
+    public Text[] nameText, hpText, expText, lvlText, skillPointsToSpend;
     public Slider[] expSlider;
     public Image[] charImage;
     public GameObject[] charStatHolder;
-    private CharacterStats[] playerStats;
+    private PlayerStats[] playerStats;
 
     void Start()
     {
@@ -20,19 +20,19 @@ public class GameMenu : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(menu.activeInHierarchy)
-            {
-                CloseMenu();
-            }
-            else 
-            {
-                menu.SetActive(true);
-                UpdateMainStats();
-                GameManager.instance.gameMenuOpen = true;
-            }
-        }
+        // if(Input.GetButtonDown("Fire2"))
+        // {
+        //     if(menu.activeInHierarchy)
+        //     {
+        //         CloseMenu();
+        //     }
+        //     else 
+        //     {
+        //         menu.SetActive(true);
+        //         UpdateMainStats();
+        //         GameManager.instance.gameMenuOpen = true;
+        //     }
+        // }
     }
 
     public void UpdateMainStats()
@@ -59,6 +59,7 @@ public class GameMenu : MonoBehaviour
                     expSlider[i].maxValue = playerStats[i].expToNextLevel[playerStats[i].playerLevel];
                     expSlider[i].value = playerStats[i].currentEXP;
                     charImage[i].sprite = playerStats[i].charImage;
+                    skillPointsToSpend[i].text = "" +  playerStats[i].skillPoints;
                 }
                 else
                 {
