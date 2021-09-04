@@ -11,6 +11,7 @@ public class ShootArrow : MonoBehaviour
     float lookAngle;
     Vector2 lookDirection;
     public float offset;
+    private float angle;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -22,21 +23,26 @@ public class ShootArrow : MonoBehaviour
     }
     void Shoot()
     {
-        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var screenCam = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        Vector2 target = CrosshairCursor.instance.mouseCursorPos;
+
+        Vector3 worldMousePos = screenCam;
+
+        // Direction of mouse to player
         Vector2 direction = (Vector2)((worldMousePos - firePoint.position));
-        direction.Normalize ();
+        direction.Normalize();
 
         // Creates the arrow locally
         GameObject arrow = (GameObject)Instantiate (
                                 arrowPrefab,
                                 firePoint.position + (Vector3)( direction * 0.5f),
-                                Quaternion.identity);
-
-        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        arrow.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+                                firePoint.rotation);
 
         // Adds velocity to the arrow
-        arrow.GetComponent<Rigidbody2D> ().velocity = direction * arrowForce;
+        arrow.GetComponent<Rigidbody2D>().velocity = direction * arrowForce;
+
+        // angle = Mathf.Atan2(worldMousePos.y, worldMousePos.x) * Mathf.Rad2Deg - 90f;
+        // arrow.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 1000 * Time.deltaTime);
     }   
 }

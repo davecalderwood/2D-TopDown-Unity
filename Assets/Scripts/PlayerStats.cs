@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
-    public string charName;
     public int playerLevel = 1;
-    public int currentEXP;
+    public int currentEXP, currentHP, skillPoints;
     public int[] expToNextLevel;
     public int maxLevel = 50;
     public int baseEXP = 1000;
-    public int currentHP;
     public int maxHP = 100;
-    public string equippedWeapon;
-    public string equippedArmor;
+    public string equippedWeapon, equippedArmor, charName;
     public Sprite charImage;
     void Start()
     {
@@ -70,11 +67,23 @@ public class PlayerStats : MonoBehaviour
     }
     public void LevelUpStats()
     {
+        // Add level
         currentEXP -= expToNextLevel[playerLevel];
         playerLevel++;
 
+        // Add max HP and reset HP to full
         maxHP = Mathf.FloorToInt(maxHP * 1.05f);
         currentHP = maxHP;
+
+        // Add Skill point
+        if(playerLevel <= 2)
+        {
+            skillPoints = 0;
+        }
+        else
+        {
+            skillPoints++;
+        }
     }
 
     public void TakeDamage(int damageTaken)

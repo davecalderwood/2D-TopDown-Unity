@@ -6,7 +6,6 @@ public class Arrow : MonoBehaviour
 {
     void Update()
     {
-
         Object.Destroy(gameObject, 2.0f);
     }
 }
