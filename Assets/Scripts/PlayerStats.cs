@@ -14,6 +14,12 @@ public class PlayerStats : MonoBehaviour
     public int maxHP = 100;
     public string equippedWeapon, equippedArmor, charName;
     public Sprite charImage;
+    private PlayerSkills playerSkills;
+
+    private void Awake() 
+    {
+        playerSkills = new PlayerSkills();
+    }
     void Start()
     {
         instance = this;
@@ -76,7 +82,7 @@ public class PlayerStats : MonoBehaviour
         currentHP = maxHP;
 
         // Add Skill point
-        if(playerLevel <= 3)
+        if(playerLevel <= 2)
         {
             skillPoints = 0;
         }
@@ -102,5 +108,15 @@ public class PlayerStats : MonoBehaviour
     {
         currentHP += healPoints;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+    }
+
+    public PlayerSkills GetPlayerSkills() 
+    {
+        return playerSkills;
+    }
+
+    public bool CanUseBurstFire() 
+    {
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.BurstFire);
     }
 }

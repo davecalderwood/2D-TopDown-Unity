@@ -5,7 +5,8 @@ using UnityEngine;
 public class InGameMenu : MonoBehaviour
 {
     public static bool inGameMenu = false;
-    public GameObject menuUI, hudDisplay;
+    public static bool inPauseMenu = false;
+    public GameObject menuUI, hudDisplay, externalPause;
     public GameObject[] windows;
 
     private void Start() 
@@ -14,7 +15,7 @@ public class InGameMenu : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Tab) && !inPauseMenu)
         {
             if(inGameMenu)
             {
@@ -25,14 +26,27 @@ public class InGameMenu : MonoBehaviour
                 Pause(0);
             }
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(inPauseMenu)
+            {
+                ExternalResume();
+            }
+            else
+            {
+                ExternalPause();
+            }
+        }
     }
 
     void Resume()
     {
         menuUI.SetActive(false);
         hudDisplay.SetActive(true);
+        externalPause.SetActive(false);
         Time.timeScale = 1f; // Un-Freeze game when resumed
         inGameMenu = false;
+        inPauseMenu = false;
         GameManager.instance.inGameMenuPages = false;
 
         for(int i = 0; i < windows.Length; i++)
@@ -59,5 +73,34 @@ public class InGameMenu : MonoBehaviour
                 windows[i].SetActive(false);
             }
         }
+    }
+
+    void ExternalPause()
+    {
+        externalPause.SetActive(true);
+        Time.timeScale = 0f;
+        inPauseMenu = true;
+        GameManager.instance.inGameMenuPages = true;
+    }
+    public void ExternalResume()
+    {
+        externalPause.SetActive(false);
+        Time.timeScale = 1f;
+        inPauseMenu = false;
+        GameManager.instance.inGameMenuPages = false;
+    }
+
+    public void Settings()
+    {
+        Debug.Log("Settings");
+    }
+
+    public void LoadMenu()
+    {
+        Debug.Log("Load Menu");
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game");
     }
 }
