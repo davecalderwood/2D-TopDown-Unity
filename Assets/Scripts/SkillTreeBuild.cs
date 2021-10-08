@@ -6,15 +6,14 @@ public class SkillTreeBuild : MonoBehaviour
 {
     public static SkillTreeBuild skillTree;
     private void Awake() => skillTree = this;
-
     public int[] SkillLevels, SkillCaps;
     public string[] SkillNames, SkillDescriptions;
-
     public List<Skill> SkillList;
-    public GameObject SkillHolder;
+    public GameObject SkillHolder, ConnectorHolder;
+    public List<GameObject> ConnectorList;
     public int SkillPoint;
 
-    private void Start() 
+    public void Start() 
     {
         SkillPoint = 20;
 
@@ -33,8 +32,12 @@ public class SkillTreeBuild : MonoBehaviour
         };
 
         foreach(var skill in SkillHolder.GetComponentsInChildren<Skill>()) SkillList.Add(skill);
+        foreach(var connector in ConnectorHolder.GetComponentsInChildren<RectTransform>()) ConnectorList.Add(connector.gameObject);
 
-        for(var i = 0; i < SkillList.Count; i++) SkillList[-i].id = i;
+        for(var i = 0; i < SkillList.Count; i++) SkillList[i].id = i;
+
+        SkillList[0].ConnectedSkills = new[] {1, 2, 3};
+        SkillList[2].ConnectedSkills = new[] {4, 5};
 
         UpdateAllSkillUI();
     }

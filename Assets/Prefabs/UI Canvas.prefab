@@ -2443,6 +2443,7 @@ MonoBehaviour:
   - {fileID: 8147510802094410591}
   lvlText:
   - {fileID: 8023288737894068271}
+  skillPointsToSpend: []
   expSlider:
   - {fileID: 9150796912413012695}
   charImage:

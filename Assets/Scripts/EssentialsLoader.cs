@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EssentialsLoader : MonoBehaviour
 {
-    public GameObject UIScreen;
-    public GameObject player;
-    public GameObject gameMan;
-    public GameObject UIOverlay;
+    public GameObject UIScreen, player, gameMan, UIOverlay;
     void Awake()
     {
         if(UIFade.instance == null)

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class InGameMenu : MonoBehaviour
 {
+    public static InGameMenu instance;
     public static bool inGameMenu = false;
     public static bool inPauseMenu = false;
-    public GameObject menuUI, hudDisplay, externalPause;
+    public GameObject menuUI, hudDisplay, externalPause, newMenu;
     public GameObject[] windows;
 
     private void Start() 
     {
+        instance = this;
         inGameMenu = false;
     }
     void Update()
