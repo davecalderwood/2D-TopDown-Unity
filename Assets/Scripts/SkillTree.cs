@@ -9,9 +9,9 @@ public class SkillTree : MonoBehaviour
     private void Awake() 
     {
         // Find reference to button
-        GameObject.Find("BurstFire").GetComponent<Button>();
-        Debug.Log("Click");
-        playerSkills.UnlockSkill(PlayerSkills.SkillType.BurstFire);
+        // GameObject.Find("BurstFire").GetComponent<Button>();
+        // Debug.Log("Click");
+        // playerSkills.UnlockSkill(PlayerSkills.SkillType.BurstFire);
     }
 
     public void SetPlayerSkills(PlayerSkills playerSkills)
