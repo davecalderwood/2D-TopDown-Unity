@@ -23,7 +23,7 @@ public class Skill : MonoBehaviour
 
         // Get the Image component and change the color field 
         GetComponent<Image>().color = skillTree.SkillLevels[id] >= skillTree.SkillCaps[id] ? Color.yellow
-            : skillTree.SkillPoint >= 1 ? Color.green : Color.white;
+            : skillTree.SkillPoint >= 1 ? Color.green : Color.clear;
 
             // is each skill visible?
             foreach(var connectedSkill in ConnectedSkills)
@@ -35,6 +35,7 @@ public class Skill : MonoBehaviour
 
     public void BuySkill()
     {
+        Debug.Log("Buy Skill Pressed");
         if(skillTree.SkillPoint < 1 || skillTree.SkillLevels[id] >= skillTree.SkillCaps[id]) return;
         skillTree.SkillPoint -= 1;
         skillTree.SkillLevels[id]++;

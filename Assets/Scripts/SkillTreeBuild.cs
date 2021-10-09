@@ -5,7 +5,6 @@ using UnityEngine;
 public class SkillTreeBuild : MonoBehaviour
 {
     public static SkillTreeBuild skillTree;
-    private void Awake() => skillTree = this;
     public int[] SkillLevels, SkillCaps;
     public string[] SkillNames, SkillDescriptions;
     public List<Skill> SkillList;
@@ -13,12 +12,14 @@ public class SkillTreeBuild : MonoBehaviour
     public List<GameObject> ConnectorList;
     public int SkillPoint;
 
-    public void Start() 
+
+    private void Awake() => skillTree = this;
+    private void Start() 
     {
         SkillPoint = 20;
 
         SkillLevels = new int[6];
-        SkillCaps = new[] {1, 5, 5, 2, 10, 10};
+        SkillCaps = new[] {2, 5, 5, 2, 10, 10};
 
         SkillNames = new[] {"Upgrade 1", "Upgrade 2", "Upgrade 3", "Upgrade 4", "Upgrade 5", "Upgrade 6"};
         SkillDescriptions = new[] 
