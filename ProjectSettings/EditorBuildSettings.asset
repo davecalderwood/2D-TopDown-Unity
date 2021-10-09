@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bridge.unity
     guid: c8844ed52f762c84b89b11979f7d0e24
+  - enabled: 1
+    path: Assets/Scenes/BattleArea.unity
+    guid: b5fb7a6e34e279448a0d3196fb62632d
   m_configObjects: {}
