@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/OpenRoad.unity
     guid: 35016494d2081ab498f39e709f0167d4
   - enabled: 1
-    path: Assets/Scenes/Underground.unity
-    guid: 6e9726770e04f3247b6bda73efbd34d8
-  - enabled: 1
     path: Assets/Scenes/Bridge.unity
     guid: c8844ed52f762c84b89b11979f7d0e24
   - enabled: 1

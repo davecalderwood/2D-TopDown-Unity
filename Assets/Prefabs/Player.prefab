@@ -176,16 +176,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff3db15791cb0d4c8affcbbd16ec332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: 
   playerLevel: 1
   currentEXP: 0
+  currentHP: 0
+  skillPoints: 0
   expToNextLevel: 
   maxLevel: 50
   baseEXP: 1000
-  currentHP: 0
   maxHP: 100
   equippedWeapon: 
   equippedArmor: 
+  charName: 
   charImage: {fileID: 0}
 --- !u!114 &2449073493351465485
 MonoBehaviour:
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b018f6d828c6ce4cbefd3872a09b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canShoot: 1
   firePoint: {fileID: 1591277017914786915}
   arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
   gameCamera: {fileID: 1570378801736556816, guid: 7ffc25ec91a77f149a49733544ebb2ae, type: 3}
@@ -344,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7180647151db34bacd91313e579bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorEnabled: 0
   mouseCursorPos: {x: 0, y: 0}
   shootDirection: {x: 0, y: 0}
   firePoint: {fileID: 1591277017914786915}

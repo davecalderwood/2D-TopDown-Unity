@@ -5,6 +5,11 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public Rigidbody2D rb;
+
+    private void Start() 
+    {
+        
+    }
     void Update()
     {
         Object.Destroy(gameObject, 2.0f);
@@ -12,6 +17,13 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        if(other.collider.tag == "Arrow")
+        {
+            // Physics.IgnoreCollision(other.collider, GetComponent<Collider2D>);
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
 }
