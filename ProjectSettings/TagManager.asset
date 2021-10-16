@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arrow
   - Enemy
+  - Crosshair
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Player
   - Arrow
-  - 
+  - Crosshair
   - 
   - 
   - 
