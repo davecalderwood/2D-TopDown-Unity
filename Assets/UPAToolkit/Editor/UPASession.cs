@@ -166,7 +166,7 @@ public class UPASession {
 		}
 		
 		texImp.filterMode = FilterMode.Point;
-		texImp.textureFormat = TextureImporterFormat.AutomaticTruecolor;
+		// texImp.textureFormat = TextureImporterFormat.AutomaticTruecolor;
 		
 		AssetDatabase.ImportAsset(path); 
 		
