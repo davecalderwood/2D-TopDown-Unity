@@ -6,7 +6,7 @@ using CodeMonkey.Utils;
 public class EnemyAI : MonoBehaviour
 {
     private Vector3 startingPosition;
-    private void Start() 
+    private void Start()
     {
         startingPosition = transform.position;
     }
