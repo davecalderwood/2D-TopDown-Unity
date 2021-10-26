@@ -56,6 +56,7 @@ public class ShootArrow : MonoBehaviour
         // Adds velocity to the arrow
         arrow.GetComponent<Rigidbody2D>().velocity = direction * arrowForce;
 
+        // Rotate arrow based on position from player to cursor
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         arrow.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), 1000 * Time.deltaTime);
     }   
