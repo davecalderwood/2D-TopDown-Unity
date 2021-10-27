@@ -14,6 +14,7 @@ public class ShootArrow : MonoBehaviour
     Vector2 lookDirection;
     public float spread;
     private float angle;
+    public float coneSize;
 
     private void Awake() 
     {
@@ -27,7 +28,7 @@ public class ShootArrow : MonoBehaviour
 
             if(canShoot)
             {
-                Shoot();
+                ShootingArrows();
             }
             else
             {
@@ -35,7 +36,7 @@ public class ShootArrow : MonoBehaviour
             }
         }
     }
-    void Shoot()
+    void ShootingArrows()
     {
         var screenCam = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
