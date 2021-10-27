@@ -5,10 +5,11 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public float arrowDamage;
 
     private void Start() 
     {
-        
+        EnemyHealth enemyHealth = rb.transform.GetComponent<EnemyHealth>();
     }
     void Update()
     {
@@ -17,6 +18,12 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
+        var enemy = other.collider.GetComponent<EnemyBehavior>();
+        if(enemy)
+        {
+            enemy.TakeDamage(10);
+        }
+
         if(other.collider.tag == "Arrow")
         {
             // Physics.IgnoreCollision(other.collider, GetComponent<Collider2D>);
@@ -25,12 +32,17 @@ public class Arrow : MonoBehaviour
         {
             if(other.collider.tag == "Enemy")
             {
-                Debug.Log("Hit Enemy");
+                Destroy(gameObject);
             }
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
     void OnBecameInvisible() {
         Destroy(gameObject);
+    }
+
+    public void DoDamage()
+    {
+
     }
 }
