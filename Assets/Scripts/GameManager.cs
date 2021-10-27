@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        HealthSystem healthSystem = new HealthSystem(100);
+        Debug.Log("Health System: " + healthSystem.GetHealth());
+
         DontDestroyOnLoad(gameObject);
     }
 

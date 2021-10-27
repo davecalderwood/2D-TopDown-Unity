@@ -15,10 +15,6 @@ public class ActionSkill_Archer : MonoBehaviour
         instance = this;
     }
 
-    // Press Key to activate action skill
-    // actionSkillActive becomes true; actionSkillTimer starts
-    // when timer runs out actionSkillCoolDownTimer
-
     private void Update() 
     {
         StartActionSkill();

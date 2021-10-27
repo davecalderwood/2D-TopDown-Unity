@@ -23,6 +23,10 @@ public class Arrow : MonoBehaviour
         }
         else
         {
+            if(other.collider.tag == "Enemy")
+            {
+                Debug.Log("Hit Enemy");
+            }
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
