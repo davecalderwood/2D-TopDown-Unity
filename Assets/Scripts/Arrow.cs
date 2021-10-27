@@ -26,4 +26,7 @@ public class Arrow : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
 }

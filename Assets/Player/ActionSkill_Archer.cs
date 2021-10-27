@@ -9,7 +9,6 @@ public class ActionSkill_Archer : MonoBehaviour
     [SerializeField] float actionSkillCoolDownTimer = 10f;
     public bool actionSkillActive = false;
     public bool actionSkillOnCooldown = false;
-    public GameObject arrowPrefab;
 
     private void Awake() 
     {
@@ -23,11 +22,6 @@ public class ActionSkill_Archer : MonoBehaviour
     private void Update() 
     {
         StartActionSkill();
-
-        if(actionSkillActive)
-        {
-            // ActionSkill();
-        }
     }
 
     public void StartActionSkill() 
@@ -41,13 +35,6 @@ public class ActionSkill_Archer : MonoBehaviour
                 StartCoroutine(TimerRoutine());
             }
         }
-    }
-
-    public void ActionSkill()
-    {
-        GameObject go1 = (GameObject)Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity);
-        GameObject go2 = (GameObject)Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity);
-        GameObject go3 = (GameObject)Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity);
     }
 
     private IEnumerator TimerRoutine()
