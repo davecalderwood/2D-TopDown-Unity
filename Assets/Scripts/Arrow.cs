@@ -5,15 +5,22 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float arrowDamage;
+    public float damageFormula;
+    SpriteRenderer m_SpriteRenderer;
 
     private void Start() 
     {
         EnemyHealth enemyHealth = rb.transform.GetComponent<EnemyHealth>();
+        
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
         Object.Destroy(gameObject, 2.0f);
+        if (ActionSkill_Archer.instance.actionSkillActive)
+        {
+            m_SpriteRenderer.color = Color.red;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
@@ -21,7 +28,13 @@ public class Arrow : MonoBehaviour
         var enemy = other.collider.GetComponent<EnemyBehavior>();
         if(enemy)
         {
-            enemy.TakeDamage(10);
+            damageFormula = 10f;
+
+            if (ActionSkill_Archer.instance.actionSkillActive)
+            {
+                damageFormula = damageFormula * 2;
+            }
+            enemy.TakeDamage(damageFormula);
         }
 
         if(other.collider.tag == "Arrow")
@@ -39,10 +52,5 @@ public class Arrow : MonoBehaviour
     }
     void OnBecameInvisible() {
         Destroy(gameObject);
-    }
-
-    public void DoDamage()
-    {
-
     }
 }

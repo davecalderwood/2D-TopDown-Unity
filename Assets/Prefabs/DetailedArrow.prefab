@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5903032080427911995}
+  damageFormula: 0
 --- !u!61 &3032281942085330096
 BoxCollider2D:
   m_ObjectHideFlags: 0

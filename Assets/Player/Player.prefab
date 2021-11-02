@@ -201,12 +201,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b018f6d828c6ce4cbefd3872a09b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfArrowsShot: 5
   canShoot: 1
   firePoint: {fileID: 1591277017914786915}
   arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
   gameCamera: {fileID: 1570378801736556816, guid: 7ffc25ec91a77f149a49733544ebb2ae, type: 3}
   arrowForce: 20
-  offset: 0
+  spread: 10
+  angle: 0
 --- !u!114 &-7869318599367766091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ MonoBehaviour:
   actionSkillTimer: 5
   actionSkillCoolDownTimer: 10
   actionSkillActive: 0
-  arrowPrefab: {fileID: 1224431640564511009, guid: ef1d8aef3cef8154989026bdf2208c5f, type: 3}
+  actionSkillOnCooldown: 0
 --- !u!1 &4642869008820594285
 GameObject:
   m_ObjectHideFlags: 0
