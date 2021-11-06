@@ -53,6 +53,8 @@ public class ShootArrow : MonoBehaviour
                                 firePoint.position + (Vector3)( direction * 0.5f),
                                 firePoint.rotation);
 
+        FindObjectOfType<AudioManager>().Play("BowShoot");
+        
         // Adds velocity to the arrow
         arrow.GetComponent<Rigidbody2D>().velocity = direction * arrowForce;
 

@@ -100,7 +100,8 @@ public class PlayerStats : MonoBehaviour
         if(currentHP <= 0)
         {
             currentHP = 0;
-
+            
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
             // DeathSequence();
         }
     }

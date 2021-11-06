@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EssentialsLoader : MonoBehaviour
 {
-    public GameObject UIScreen, player, gameMan, UIOverlay;
+    public GameObject UIScreen, player, gameMan, UIOverlay, AudioManagerInstance;
     void Awake()
     {
         if(UIFade.instance == null)
@@ -23,10 +23,9 @@ public class EssentialsLoader : MonoBehaviour
         {
             Instantiate(UIOverlay);
         }
-    }
-
-    void Update()
-    {
-        
+        if(AudioManager.instance == null)
+        {
+            Instantiate(AudioManagerInstance);
+        }
     }
 }
